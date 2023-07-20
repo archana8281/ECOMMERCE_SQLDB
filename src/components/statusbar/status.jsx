@@ -1,15 +1,17 @@
 import React from 'react'
 import { STATUS } from '../../utils/offer';
 function Statusbar
-({step}) {
+(props) {
+  const step  = props.step;
+  console.log({step})
   return (
     <div className="sbar">
         <div className="container3">
             {
-                STATUS.map((item, inde) =>(
+                STATUS.map((item, Index) =>(
                 <div className="sbar-pay">
-                 <div className='pay-btn'>{item.title} {step}</div>
-                 <div className='bar-icon'> </div>
+                 <div className='pay-btn'>{item.title} </div>
+                 <div className='bar-icon'><img src={step <= Index? "/images/icons/circle.png":"/images/icons/tik.png"}/></div>
                  {}
                  </div>
                 ))

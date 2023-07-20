@@ -92,7 +92,8 @@ function Footer() {
             <div className="foot-content-part">
               <h4>HELP</h4>
 
-              {footItem2?.map((item) => (
+              {footItem2 && footItem2.length > 0 &&
+              footItem2?.map((item) => (
                 <ul>
                   <li>
                     <a onClick={() => {
@@ -105,7 +106,8 @@ function Footer() {
             <div className="foot-content-part">
               <h4>SOCIAL</h4>
 
-              {footItem3?.map((item) => (
+              {footItem3 && footItem3.length > 0 &&
+              footItem3?.map((item) => (
                 <ul>
                   <li>
                     <a onClick={()=> handleSocialClick(item.slug)

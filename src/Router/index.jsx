@@ -1,7 +1,4 @@
-
-import contact from "../pages/Contact/contact";
 import Collection from "../pages/Nanoffer/top";
-import info from "../pages/detail/detail";
 import Home from "../pages/home";
 import LOGIN from "../pages/Authent/authent";
 import Cart from "../pages/Form/Add cart/cartpg";
@@ -27,16 +24,8 @@ const ROUTER = [
     component: About,
   },
   {
-    url: "/contact",
-    component: contact,
-  },
-  {
     url: "/help/*",
     component: Help,
-  },
-  {
-    url: "/detail",
-    component: info,
   },
   {
     url: "/login",

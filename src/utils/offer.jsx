@@ -60,19 +60,15 @@ const RVIEW = [
 
 const STATUS = [
     {
-        image: "/images/icons/tik.png",
         title:"Sign in",
     },
     {
-        image: "/images/icons/tik.png",
         title:"Place Order",
     },
     {
-        image: "/images/icons/circle.png",
         title:"Delivery & Payement",
     },
     {
-        image: "/images/icons/circle.png",
         title:"Complete Payement",
     },
 ]

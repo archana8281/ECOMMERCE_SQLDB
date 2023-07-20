@@ -11,7 +11,7 @@ function Add() {
         </a>
         <hr />
       </div>
-      <Statusbar/>
+      <Statusbar step={2}/>
       <div className="container2">
         <h3>Select a delivery address</h3>
         <h4>Add a new address</h4>
