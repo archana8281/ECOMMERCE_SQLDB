@@ -6,7 +6,7 @@ function LOGIN() {
   const getData = (e) =>{
      setData({...data,[e.target.name] :e.target.value})
   }
-  console.log({data});
+
     return (
     <div className="login-box">
       <img src="/images/image 27.png " alt="loading" />

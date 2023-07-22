@@ -2,16 +2,16 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import { DETA, COLOR, RVIEW } from "../../utils/offer";
+import { DETA, COLOR } from "../../utils/offer";
 import { useSearchParams, useParams, useNavigate } from "react-router-dom";
+import Similar from "../../components/Similarproduct";
 
 function Index() {
   const path = `C:/xampp/htdocs/ecommerce_db/public/images/`;
   // const path = `c:\xampp\htdocs\ecommerce_db\public\images`;
-  
+
   const navigate = useNavigate();
   const [brandItem, setbrandItem] = useState();
-
   let [searchParams, setSearchParams] = useSearchParams();
   let { id } = useParams();
   const addCart = () => {
@@ -44,7 +44,7 @@ function Index() {
       }
     };
     brandFetch();
-  }, []);
+  }, [id]);
 
   return (
     <div>
@@ -155,34 +155,10 @@ function Index() {
           </div>
         </div>
       </div>
+      {brandItem?.map((itm) => (
+        <Similar cat={itm.category} />
+      ))}
 
-      <div className="brand">
-        <div className="container">
-          <div className="recently-view">
-            <h3>SIMILAR PRODUCTS</h3>
-            <hr className="deal-line" />
-            <div className="deal-row">
-              {RVIEW.map((item1) => (
-                <div
-                  className="deal-item"
-                  onClick={() => {
-                    navigate(
-                      `/detailpg/${item1?.text?.stringValue}?id=${item1?.id?.integerValue}`
-                    );
-                  }}
-                >
-                  <img src={item1.image} alt="loading" />
-                  <div className="deal-item-content">
-                    <div>{item1.title}</div>
-                    <h4>{item1.off}</h4>
-                    <div>{item1.adout}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
       <Footer />
     </div>
   );

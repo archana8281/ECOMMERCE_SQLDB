@@ -15,7 +15,7 @@ function Navbar() {
     };
     navbarFetch();
   }, []);
-  // console.log({ nav });
+ 
   return (
     <div className="nav">
       <div className="container">

@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { FOOTER } from "../../utils/foot-list";
 import { useNavigate } from "react-router-dom";
 
 function Footer() {
@@ -49,19 +48,17 @@ function Footer() {
     }
   };
 
-  console.log({ footItem1 });
-
   const handleSocialClick = (slug) => {
     let url;
     switch (slug) {
       case "twitter":
-        url = `https://twitter.com`; 
+        url = `https://twitter.com`;
         break;
       case "youtube":
-        url = `https://www.youtube.com/`; 
+        url = `https://www.youtube.com/`;
         break;
       case "facebook":
-        url = `https://www.facebook.com/`; 
+        url = `https://www.facebook.com/`;
         break;
       default:
         return;
@@ -75,46 +72,55 @@ function Footer() {
           <div className="foot-content">
             <div className="foot-content-part">
               <h4>ABOUT</h4>
-              {FOOTER.map((item) => (
-                <ul>
-                  <li>
-                    <a
-                      onClick={() => {
-                        navigate(`/about/${item.slug}?id=${item.id}`);
-                      }}
-                    >
-                      {item.pg}
-                    </a>
-                  </li>
-                </ul>
-              ))}
+              {footItem1 &&
+                footItem1.length > 0 &&
+                footItem1.map((item) => (
+                  <ul>
+                    <li>
+                      <a
+                        onClick={() => {
+                          navigate(`/about/${item.slug}?id=${item.id}`);
+                        }}
+                      >
+                        {item.name}
+                      </a>
+                    </li>
+                  </ul>
+                ))}
             </div>
             <div className="foot-content-part">
               <h4>HELP</h4>
 
-              {footItem2 && footItem2.length > 0 &&
-              footItem2?.map((item) => (
-                <ul>
-                  <li>
-                    <a onClick={() => {
-                        navigate(`/help/${item.slug}?id=${item.id}`);
-                      }}>{item.name}</a>
-                  </li>
-                </ul>
-              ))}
+              {footItem2 &&
+                footItem2.length > 0 &&
+                footItem2?.map((item) => (
+                  <ul>
+                    <li>
+                      <a
+                        onClick={() => {
+                          navigate(`/help/${item.slug}?id=${item.id}`);
+                        }}
+                      >
+                        {item.name}
+                      </a>
+                    </li>
+                  </ul>
+                ))}
             </div>
             <div className="foot-content-part">
               <h4>SOCIAL</h4>
 
-              {footItem3 && footItem3.length > 0 &&
-              footItem3?.map((item) => (
-                <ul>
-                  <li>
-                    <a onClick={()=> handleSocialClick(item.slug)
-                      }>{item.name}</a>
-                  </li>
-                </ul>
-              ))}
+              {footItem3 &&
+                footItem3.length > 0 &&
+                footItem3?.map((item) => (
+                  <ul>
+                    <li>
+                      <a onClick={() => handleSocialClick(item.slug)}>
+                        {item.name}
+                      </a>
+                    </li>
+                  </ul>
+                ))}
             </div>
             <div className="foot-content-part">
               <h4>Mail Us :</h4>

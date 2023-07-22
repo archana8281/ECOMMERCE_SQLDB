@@ -3,7 +3,7 @@ import { STATUS } from '../../utils/offer';
 function Statusbar
 (props) {
   const step  = props.step;
-  console.log({step})
+
   return (
     <div className="sbar">
         <div className="container3">

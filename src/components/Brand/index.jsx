@@ -13,9 +13,9 @@ function Brand() {
   const detailView = JSON.parse(localStorage.getItem("recentlyview"));
   useEffect(() => {
     const brandFetch = async () => {
-      
       const response = await fetch(
-        `http://localhost/ecommerce_db/ProductController.php?action=fetch`,{
+        `http://localhost/ecommerce_db/ProductController.php?action=fetch`,
+        {
           mode: "cors",
           method: "get",
           headers: { "content-Type": "application/json" },
@@ -23,11 +23,10 @@ function Brand() {
       );
       const data = await response.json();
       setbrandItem(data);
-      // console.log({brandItem});
     };
     brandFetch();
   }, []);
-  
+
   const toggleView = () => {
     setView(!view);
   };
@@ -38,7 +37,7 @@ function Brand() {
           <h3>Top Offer</h3>
           <hr className="top-line" />
           <div className="top-list">
-            {Offer.map((item)=>(
+            {Offer.map((item) => (
               <div className="item">
                 <img src={item.image} alt="loading" />
                 <div className="item-content">
@@ -56,30 +55,25 @@ function Brand() {
             <h3>Recently Viewed Brand</h3>
             <hr className="deal-line" />
             <div className="deal-row">
-              {detailView.map((innerArray, index)=>(
+              {detailView.map((innerArray, index) => (
                 <div key={index}>
-                  {innerArray.map((item)=>(
-                   <div
-                   key={item.id}
-                   className="deal-item"
-                   onClick={()=>{
-                     navigate(
-                       `/detailpg/${item?.text}?id=${item?.id}`
-                     );
-                   }}
-                 >
-                   <img
-                     src={`/images/${item.image}`}
-                     alt="loading"
-                   />
-                   <div className="deal-item-content">
-                     <div>{item?.text}</div>
-                     <h4>{item?.offer}</h4>
-                     <div>{item?.description}</div>
-                   </div>
-                 </div>
+                  {innerArray.map((item) => (
+                    <div
+                      key={item.id}
+                      className="deal-item"
+                      onClick={() => {
+                        navigate(`/detailpg/${item?.slug}?id=${item?.id}`);
+                      }}
+                    >
+                      <img src={`/images/${item.image}`} alt="loading" />
+                      <div className="deal-item-content">
+                        <div>{item?.text}</div>
+                        <h4>{item?.offer}</h4>
+                        <div>{item?.description}</div>
+                      </div>
+                    </div>
                   ))}
-                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -89,19 +83,14 @@ function Brand() {
           <div className="deal-row">
             {show &&
               show?.length !== 0 &&
-              show.map((item)=>(
+              show.map((item) => (
                 <div
                   className="deal-item"
                   onClick={() => {
-                    navigate(
-                      `/detailpg/${item?.text}?id=${item?.id}`
-                    );
+                    navigate(`/detailpg/${item?.slug}?id=${item?.id}`);
                   }}
                 >
-                  <img
-                    src={`/images/${item.image}`}
-                    alt="loading"
-                  />
+                  <img src={`/images/${item.image}`} alt="loading" />
                   <div className="deal-item-content">
                     <div>{item?.text}</div>
                     <h4>{item?.offer}</h4>
@@ -111,22 +100,14 @@ function Brand() {
               ))}
 
             {view &&
-              show1.map((item)=>(
+              show1.map((item) => (
                 <div
                   className="deal-item"
                   onClick={() => {
-                    navigate(
-                      `/detailpg/${item?.text}?id=${item?.id}`
-                    );
+                    navigate(`/detailpg/${item?.slug}?id=${item?.id}`);
                   }}
                 >
-                 
-                  <img
-                    src={
-                     `/images/${item.image}`
-                    }
-                    alt="loading"
-                  />
+                  <img src={`/images/${item.image}`} alt="loading" />
                   <div className="deal-item-content">
                     <div>{item?.text}</div>
                     <h4>{item?.offer}</h4>
@@ -136,7 +117,7 @@ function Brand() {
               ))}
           </div>
           <a className="view" onClick={toggleView}>
-            { view ? "Close" : "View All" }
+            {view ? "Close" : "View All"}
           </a>
         </div>
       </div>

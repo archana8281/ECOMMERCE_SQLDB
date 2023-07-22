@@ -39,7 +39,7 @@ function Cart() {
                    className="cart-content-left-box-detail"
                    onClick={() => {
                      navigate(
-                       `/detailpg/${item?.text}?id=${item?.id}`
+                       `/detailpg/${item?.slug}?id=${item?.id}`
                      );
                    }}
                  >

@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 
 function Banner() {
   return (
-    <section class="regular slider">
+    <section className="regular slider">
       <Carousel   autoPlay={true} showThumbs={false}>
         <div className="banner">
           <img src="images/banner.png" alt="" className="ban" />

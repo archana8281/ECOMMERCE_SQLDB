@@ -19,7 +19,7 @@ function About() {
       setData(data);
     };
     fetchData();
-  }, []);
+  }, [id]);
   return (
     <div>
         <Header/>
